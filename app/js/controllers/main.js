@@ -8,7 +8,7 @@
 (function () {
     angular.module('App').controller('MainController', ['httpRequest', function (httpRequest) {
         var vm = this;
-
+        console.log('create controller');
         httpRequest.send('PREFIX rela: <http://purl.org/vocab/relationship/> SELECT ?child ?parent WHERE {?child rela:childOf ?parent.}').then(function (response) {
             console.log(response);
         });
