@@ -18,11 +18,10 @@
 
             return value.replace(/(\[|,|\{)/g, '$1\n')
                 .replace(/]/g, '\n]')
-                .replace(/"([a-z]+)":/g, '\t\t<code style="color:blue;">$1</code>')
+                .replace(/"([a-z]+)":/g, '\t\t<code style="color:blue;">$1: </code>')
                 .replace(/"http:\/\/family\/([a-z]+)"/g, '<code style="color:maroon">"$1"</code>')
                 .replace(/\{/g, '\t{')
                 .replace(/}/g, '\n\t}');
         };
     });
-
 })();
