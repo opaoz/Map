@@ -8,6 +8,20 @@
 </head>
 <body ng-controller="MainController as vm">
 
+<div class="container-fluid" ng-init="vm._init_()">
+    <div class="row">
+        <div class="col-xs-4 text-center" ng-repeat="query in vm.queries track by $index">
+            <button class="btn btn-success" ng-click="vm.send($index)">Use it!</button>
+            <textarea ng-model="query.text" cols="30" rows="10" class="form-control"></textarea>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12">
+            <pre class="output" ng-bind-html="vm.output | codeFormatter | trust : 'html'"></pre>
+        </div>
+    </div>
+</div>
+
 <script src="bower_components/jquery/dist/jquery.min.js"></script>
 <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 <script src="bower_components/angular/angular.js"></script>
@@ -18,5 +32,9 @@
 
 <!--Services-->
 <script src="js/services/http-request.js"></script>
+
+<!--Filters-->
+<script src="js/filters/code-formatter.js"></script>
+<script src="js/filters/trust-source.js"></script>
 </body>
 </html>
