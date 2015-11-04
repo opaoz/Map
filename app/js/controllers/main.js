@@ -13,20 +13,23 @@
             console.log('create controller');
             vm.queries = [
                 {
-                    text: 'PREFIX rela: <http://purl.org/vocab/relationship/> SELECT ?child ?parent WHERE {?child rela:childOf ?parent.}'
+                    title:'Parent',
+                    text: 'SELECT ?child ?parent WHERE {?child rela:childOf ?parent.}'
                 },
                 {
-                    text: ''
+                    title:'Spouse',
+                    text: 'SELECT ?first ?second WHERE {?first rela:spouseOf ?second}'
                 },
                 {
-                    text: ''
+                    title:'Grandparent',
+                    text: 'SELECT ?person ?grandparent WHERE {?grandparent rela:parentOf ?y .?y rela:parentOf ?person.}'
                 }
             ];
             vm.output = 'Text will be here';
         };
 
         vm.send = function (index) {
-            httpRequest.send(vm.queries[index].text).then(function (response) {
+            httpRequest.send('PREFIX rela: <http://purl.org/vocab/relationship/>' + vm.queries[index].text).then(function (response) {
                 console.log(response);
                 vm.output = response.data;
             });

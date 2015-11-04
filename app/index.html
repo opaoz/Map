@@ -11,13 +11,14 @@
 <div class="container-fluid" ng-init="vm._init_()">
     <div class="row">
         <div class="col-xs-4 text-center" ng-repeat="query in vm.queries track by $index">
-            <button class="btn btn-success" ng-click="vm.send($index)">Use it!</button>
+            <strong>{{query.title}}</strong>
             <textarea ng-model="query.text" cols="30" rows="10" class="form-control"></textarea>
+            <button class="btn btn-success btn-block" ng-click="vm.send($index)">Use it!</button>
         </div>
     </div>
-    <div class="row">
+    <div class="row output">
         <div class="col-xs-12">
-            <pre class="output" ng-bind-html="vm.output | codeFormatter | trust : 'html'"></pre>
+            <pre ng-bind-html="vm.output | codeFormatter | trust : 'html'"></pre>
         </div>
     </div>
 </div>
