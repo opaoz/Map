@@ -8,7 +8,7 @@
 </head>
 <body ng-controller="MainController as vm">
 
-<div class="container-fluid" ng-init="vm._init_()">
+<!--<div class="container-fluid" ng-init="vm._init_()">
     <div class="row">
         <div class="col-xs-4 text-center" ng-repeat="query in vm.queries track by $index">
             <strong>{{query.title}}</strong>
@@ -21,11 +21,15 @@
             <pre ng-bind-html="vm.output | codeFormatter | trust : 'html'"></pre>
         </div>
     </div>
-</div>
+</div>-->
+<ui-gmap-google-map center='vm.map.center' zoom='vm.map.zoom'></ui-gmap-google-map>
 
 <script src="bower_components/jquery/dist/jquery.min.js"></script>
 <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="bower_components/lodash/lodash.js"></script>
 <script src="bower_components/angular/angular.js"></script>
+<script src="bower_components/angular-simple-logger/dist/angular-simple-logger.js"></script>
+<script src="bower_components/angular-google-maps/dist/angular-google-maps.js"></script>
 
 <script src="js/app.js"></script>
 <!--Controllers-->
@@ -33,6 +37,7 @@
 
 <!--Services-->
 <script src="js/services/http-request.js"></script>
+<script src="js/services/lodash.js"></script>
 
 <!--Filters-->
 <script src="js/filters/code-formatter.js"></script>

@@ -10,7 +10,7 @@
         var vm = this;
 
         vm._init_ = function () {
-            console.log('create controller');
+           /* console.log('create controller');
             vm.queries = [
                 {
                     title:'Parent',
@@ -25,14 +25,15 @@
                     text: 'SELECT ?person ?grandparent WHERE {?grandparent rela:parentOf ?y .?y rela:parentOf ?person.}'
                 }
             ];
-            vm.output = 'Text will be here';
+            vm.output = 'Text will be here';*/
+            vm.map = { center: { latitude: 42, longitude: 50 }, zoom: 8 };
         };
 
-        vm.send = function (index) {
+        /*vm.send = function (index) {
             httpRequest.send('PREFIX rela: <http://purl.org/vocab/relationship/>' + vm.queries[index].text).then(function (response) {
                 console.log(response);
                 vm.output = response.data;
             });
-        };
+        };*/
     }]);
 })();
